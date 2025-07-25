@@ -1,6 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
-import { serveStatic , log } from "./vite";
+import { serveStatic, log } from "./vite"; // ❗️ NO setupVite here
 
 const app = express();
 app.use(express.json());
@@ -24,21 +24,14 @@ app.use((req, res, next) => {
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
-
       if (logLine.length > 80) {
         logLine = logLine.slice(0, 79) + "…";
       }
-
       log(logLine);
     }
   });
 
   next();
-});
-
-// ✅ Add a simple root route to confirm app is alive
-app.get("/", (_req: Request, res: Response) => {
-  res.send("Restaurant Management App is up and running 🚀");
 });
 
 (async () => {
@@ -51,7 +44,7 @@ app.get("/", (_req: Request, res: Response) => {
     throw err;
   });
 
-  // Setup Vite only in development
+  // ✅ Dynamic import avoids bundling setupVite in production
   if (app.get("env") === "development") {
     const { setupVite } = await import("./vite");
     await setupVite(app, server);
@@ -59,13 +52,11 @@ app.get("/", (_req: Request, res: Response) => {
     serveStatic(app);
   }
 
-  // ✅ Respect Heroku's PORT environment variable
   const port = parseInt(process.env.PORT || '5000', 10);
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`Server running on http://0.0.0.0:${port} 🌐`);
-  });
+  server.listen(
+    { port, host: "0.0.0.0", reusePort: true },
+    () => {
+      log(`serving on port ${port}`);
+    }
+  );
 })();
