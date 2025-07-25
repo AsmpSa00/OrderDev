@@ -1,0 +1,41 @@
+Bad request - please check your parameters
+Invalid order data
+
+Ask Assistant
+Error details
+
+ From HTTP Request
+Error code
+
+400
+
+Full message
+
+400 - "{\"message\":\"Invalid order data\",\"errors\":[{\"code\":\"invalid_type\",\"expected\":\"string\",\"received\":\"undefined\",\"path\":[\"from_number\"],\"message\":\"Required\"},{\"code\":\"invalid_type\",\"expected\":\"string\",\"received\":\"undefined\",\"path\":[\"order_summary\"],\"message\":\"Required\"}]}"
+Request
+
+{ "body": { "+14378822552": "Here’s your order confirmation:\n\n- 1 Medium Burrito \n- Whole Wheat Tortilla \n- Roasted Veggies \n- Chipotle Tomato Mild Salsa \n- No extra toppings or sauces \n- Pickup Location: 2055 Dundas Street West \n\nThank you for your order! It will be ready for pickup." }, "headers": { "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7" }, "method": "POST", "uri": "https://b27252c2-ee28-4463-ac55-779f8d1d7272-00-1xsgued4bsmsm.riker.replit.dev/api/orders/quesada206", "gzip": true, "rejectUnauthorized": true, "followRedirect": true, "resolveWithFullResponse": true, "followAllRedirects": true, "timeout": 300000, "encoding": null, "json": false, "useStream": true }
+ Other info
+Item Index
+
+0
+
+Node type
+
+n8n-nodes-base.httpRequest
+
+Node version
+
+4.2 (Latest)
+
+n8n version
+
+1.102.4 (Cloud)
+
+Time
+
+7/25/2025, 3:12:05 PM
+
+Stack trace
+
+NodeApiError: Bad request - please check your parameters at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_1af219c3f47f2a1223ec4ccec249a974/node_modules/n8n-nodes-base/nodes/HttpRequest/V3/HttpRequestV3.node.ts:780:15) at processTicksAndRejections (node:internal/process/task_queues:105:5) at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@5.8.1_ws@8.17.1_zod@3.25.67_/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1212:9) at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@5.8.1_ws@8.17.1_zod@3.25.67_/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1582:27 at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_openai@5.8.1_ws@8.17.1_zod@3.25.67_/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:2153:11
