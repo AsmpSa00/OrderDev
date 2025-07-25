@@ -1,6 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+import { serveStatic , log } from "./vite";
 
 const app = express();
 app.use(express.json());
@@ -53,6 +53,7 @@ app.get("/", (_req: Request, res: Response) => {
 
   // Setup Vite only in development
   if (app.get("env") === "development") {
+    const { setupVite } = await import("./vite");
     await setupVite(app, server);
   } else {
     serveStatic(app);
