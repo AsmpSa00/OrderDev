@@ -1,0 +1,42 @@
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.*.local
+
+# Build output
+dist/
+build/
+.vite/
+.esbuild/
+
+# Drizzle migrations/output
+drizzle/
+.drizzle/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs/editors
+.vscode/
+.idea/
+*.sw?
+
+# Logs
+logs/
+*.log
+
+# Testing/coverage
+coverage/
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+
+# Others
+*.local
+*.sqlite
+*.bak
